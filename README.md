@@ -1,1 +1,5 @@
 # CSC1061-JWallace
+Jessika Wallace
+CSC 1061 602 
+MWF 1:00PM - 2:45PM
+BP 119
