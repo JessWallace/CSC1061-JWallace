@@ -37,7 +37,18 @@ public class FileTree implements Iterable <FileNode> {
 	 * @param fileNode
 	 */
 	private void buildTree(FileNode fileNode) {
+		File currentFile = fileNode.getFile();
 
+		if (currentFile.isDirectory()) {
+			File[] children = currentFile.listFiles();
+			if (children != null) {
+				for (File child : children) {
+					FileNode childNode = new FileNode(child);
+					fileNode.getChildNodes().add(childNode);
+					buildTree(childNode);
+				}
+			}
+		}
 	
 	}
 	
@@ -50,19 +61,32 @@ public class FileTree implements Iterable <FileNode> {
 	 * @return 
 	 */
 	private class DepthFirstIterator implements Iterator<FileNode> {
+		private ArrayDeque<FileNode> stack1 = new ArrayDeque<>();
+		private ArrayDeque<FileNode> stack2 = new ArrayDeque<>();
 		
 		public DepthFirstIterator() {
+			if (root != null) {
+				stack1.push(root);
 
+				while (!stack1.isEmpty()) {
+					FileNode node = stack1.pop();
+					stack2.push(node);
+
+					for (FileNode child : node.getChildNodes()) {
+						stack1.push(child);
+					}
+				}
+			}
 		}
 
 		@Override
 		public boolean hasNext() {
-			return true;
+			return !stack2.isEmpty();
 		}
 		
 		@Override
 		public FileNode next() {
-			return null;
+			return stack2.pop();
 		}
 	}
 	
@@ -83,19 +107,26 @@ public class FileTree implements Iterable <FileNode> {
 	 * 
 	 */
 	private class BreadthFirstIterator implements Iterator<FileNode> {
+		private ArrayDeque<FileNode> queue = new ArrayDeque<>();
 		
 		public BreadthFirstIterator() {
-
+			if (root != null) {
+				queue.add(root);
+			}
 		}
 		
 		@Override
 		public boolean hasNext() {
-			return true;
+			return !queue.isEmpty();
 		}
 
 		@Override
 		public FileNode next() {
-			return null;
+			FileNode current = queue.poll();
+			for (FileNode child : current.getChildNodes()) {
+				queue.add(child);
+			}
+			return current;
 		}
 		
 	}
