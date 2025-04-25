@@ -5,11 +5,11 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>edu.frcc.csc1061jsp25</groupId>
-  <artifactId>Exam2</artifactId>
+  <artifactId>MyHashMap</artifactId>
   <version>0.0.1-SNAPSHOT</version>
 
-  <name>Exam2</name>
-  <description>A simple Exam2.</description>
+  <name>MyHashMap</name>
+  <description>A simple MyHashMap.</description>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
