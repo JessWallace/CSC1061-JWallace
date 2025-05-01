@@ -1,0 +1,6 @@
+Student, Abby Apple, 123 Abraham Avenue, 1111111, AApple@student.edu, Freshman
+Student, Billy Banana, 234 Billings Boulevard, 2222222, BBanana@student.edu, Sophomore
+Faculty, Candice Carrot, 345 Collins Court, 3333333, CandiceCarrot@employee.edu, C0123, 6000.0, June 1, 2023, M-W-F 12-1PM, Junior
+Faculty, Daniel Durian, 456 Dunham Drive, 4444444, DanielDurian@employee.edu, D0234, 9500.0, June 1, 2018, M 9-10AM, Senior
+Staff, Elsie Eggplant, 567 Emerson Street, 5555555, ElsieEggplant@employee.edu, E0345, 75000.0, August 15, 2020, Human Resources Administrator
+Staff, Fanny Fig, 578 Fredrick Way, 6666666, FannyFig@employee.edu, F0456, 198000.0, November 15, 2015, Chairman
