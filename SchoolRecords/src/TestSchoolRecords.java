@@ -1,3 +1,5 @@
+import java.io.IOException;
+
 /**
  * A program to write in employees to a database, then read them out. Jessika
  * Wallace - CSC1061
@@ -5,7 +7,7 @@
 
 public class TestSchoolRecords {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException, PersonObjectDBException {
 		/**
 		 * New Database to hold employees
 		 */
@@ -22,10 +24,10 @@ public class TestSchoolRecords {
 		 * Create 2 Faculty objects and write into database.
 		 */
 		Faculty f1 = new Faculty("Candice Carrot", "345 Collins Court", 3333333, "CandiceCarrot@employee.edu", "C0123",
-				60000, "June 1, 2023", "M-W-F 12-1PM", "Junior");
+				6000, "June 1, 2023", "M-W-F 12-1PM", "Junior");
 		database.writePerson(f1);
 		Faculty f2 = new Faculty("Daniel Durian", "456 Dunham Drive", 4444444, "DanielDurian@employee.edu", "D0234",
-				95000, "June 1, 2018", "M 9-10AM", "Senior");
+				9500, "June 1, 2018", "M 9-10AM", "Senior");
 		database.writePerson(f2);
 		/**
 		 * Create 2 Staff objects and write into database.
@@ -40,14 +42,10 @@ public class TestSchoolRecords {
 		 * Now read back all the entries from the database.
 		 */
 		System.out.println("Reading back Database.\n");
-		for (String person : database.readDatabase()) {
-			System.out.println(person);
+		for (Person person : database.readDatabase()) {
+			System.out.print(person);
 		}
-		/**
-		 * Clear out the database and close the program so no duplicate entries.
-		 */
-		System.out.println("\nClearing Database.");
-		database.clearDatabase();
+
 	}
 
 }
